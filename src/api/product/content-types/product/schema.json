@@ -1,0 +1,110 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "text"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "oldPrice": {
+      "type": "decimal"
+    },
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "color": {
+      "type": "string"
+    },
+    "discount": {
+      "type": "integer"
+    },
+    "isNew": {
+      "type": "boolean",
+      "default": false
+    },
+    "isTrending": {
+      "type": "boolean",
+      "default": false
+    },
+    "isOversize": {
+      "type": "boolean",
+      "default": false
+    },
+    "isFit": {
+      "type": "boolean",
+      "default": false
+    },
+    "isSolid": {
+      "type": "boolean",
+      "default": false
+    },
+    "isPrinted": {
+      "type": "boolean",
+      "default": false
+    },
+    "isFullsleeve": {
+      "type": "boolean",
+      "default": false
+    },
+    "isHalfsleeve": {
+      "type": "boolean",
+      "default": false
+    },
+    "isSleeveless": {
+      "type": "boolean",
+      "default": false
+    },
+    "isSporty": {
+      "type": "boolean",
+      "default": false
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "products"
+    },
+    "subcategories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::subcategory.subcategory",
+      "inversedBy": "products"
+    },
+    "size": {
+      "type": "customField",
+      "options": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "XXXL"
+      ],
+      "customField": "plugin::multi-select.multi-select"
+    }
+  }
+}
